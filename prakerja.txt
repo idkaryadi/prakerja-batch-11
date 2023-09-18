@@ -1,3 +1,5 @@
 Ini dari folder remote
 Ini dari folder clone
 Ini perubahan dari clone B
+ini perubahan dari remote A
+
