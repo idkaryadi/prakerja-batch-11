@@ -1,5 +1,0 @@
-tambah feature A
-tambah branch develop
-Ini dari folder remote
-Ini dari folder clone
-ini perubahan dari remote A
