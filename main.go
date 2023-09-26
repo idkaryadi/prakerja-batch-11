@@ -1,37 +1,18 @@
 package main
 
 import (
-	"net/http"
+	"prakerja11/configs"
+	"prakerja11/routes"
 
 	"github.com/labstack/echo/v4"
 )
 
-type User struct {
-	Id int 		`json:"id"`
-	Name string `json:"name"`
-}
-
-type BaseResponse struct {
-	Status bool 		`json:"status"`
-	Message string 		`json:"message"`
-	Data interface{} 	`json:"data"`
-}
 
 func main(){
+	configs.InitDatabase()
 	e := echo.New()
-	e.GET("/users", GetUsersController)
+	routes.InitRoutes(e)
 	e.Start(":8000")
 }
 
-func GetUsersController(c echo.Context) error{
-	var users = []User{
-		{1, "Alta"},
-		{2, "Alterra"},
-		{3, "Academy"},
-	}
-	return c.JSON(http.StatusOK, BaseResponse{
-		Status: true,
-		Message: "Success",
-		Data: users,
-	})
-}
+
