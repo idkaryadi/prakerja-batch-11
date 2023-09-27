@@ -1,6 +1,6 @@
 module prakerja11
 
-go 1.21.1
+go 1.20
 
 require (
 	github.com/labstack/echo-jwt v0.0.0-20221127215225-c84d41a71003
