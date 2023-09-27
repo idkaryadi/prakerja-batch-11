@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"prakerja11/configs"
 	"prakerja11/routes"
 
@@ -10,11 +11,11 @@ import (
 
 
 func main(){
-	loadEnv()
+	// loadEnv()
 	configs.InitDatabase()
 	e := echo.New()
 	routes.InitRoutes(e)
-	e.Start(":8000")
+	e.Start(":"+os.Getenv("PORT"))
 }
 
 func loadEnv(){
