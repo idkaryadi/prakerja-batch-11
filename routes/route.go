@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"os"
 	authcontroller "prakerja11/controllers/auth"
 	usercontroller "prakerja11/controllers/user"
 
@@ -15,8 +16,7 @@ func InitRoutes(e *echo.Echo) {
 	e.POST("/login", authcontroller.LoginController)
 	e.POST("/register", authcontroller.RegisterController)
 
-	eAuth := e.Group("")
-	eAuth.Use(echojwt.JWT([]byte("123")))
-	eAuth.GET("/users", usercontroller.GetUsersController)
-
+	eAuthUser := e.Group("")
+	eAuthUser.Use(echojwt.JWT([]byte(os.Getenv("SECRET_JWT"))))
+	eAuthUser.GET("/users", usercontroller.GetUsersController)
 }
